@@ -6,7 +6,7 @@ export default class ExamplePlugin extends RikkaPlugin {
         name: "Goosemod-Compat",
         description: "Goosemod compatibility plugin for Rikka",
         author: "V3L0C1T13S",
-        license: "BSD 3-Clause",
+        license: "Apache-v2.0",
         version: "0.1.0",
         dependencies: []
     }
