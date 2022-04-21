@@ -1,5 +1,6 @@
 import RikkaPlugin from '@rikka/Common/entities/Plugin';
 import { sleep } from '@rikka/API/Utils/time';
+import { Logger } from '@rikka/API/Utils';
 
 export default class ExamplePlugin extends RikkaPlugin {
     Manifest = {
@@ -30,10 +31,8 @@ export default class ExamplePlugin extends RikkaPlugin {
 
         const locale = Object.keys(wpRequire.c).map((x) => wpRequire.c[x].exports).find((x) => x?.default?.getLocaleInfo).default.getLocale();
 
-        console.log('[GooseMod Bootstrap]', 'Found locale', locale);
+        Logger.log('[GooseMod Bootstrap]', 'Found locale', locale);
 
-        const url = `https://raw.githubusercontent.com/GooseMod/GooseMod/dist-dev/goosemod.${locale}.js?_<buildtime>`;
-        console.log(url);
         // eval(await (await fetch(`http://localhost:1234/goosemod.${locale}.js`)).text());
         eval(await (await fetch(`https://raw.githubusercontent.com/GooseMod/GooseMod/dist-dev/goosemod.${locale}.js?_<buildtime>`, { cache: 'force-cache' })).text());
     };
